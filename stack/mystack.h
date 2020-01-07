@@ -2,15 +2,18 @@
 # include <stdlib.h>
 using namespace std;
 
-class stack {
+template<class T> class stack {
 private:
+	int top;
+	int size;
 
 public:
+
 	stack();
-	stack(int capacity);
-	void push(int x);
-	int pop();
+	stack(int size);
+	void push(T x);
+	T pop();
 	bool Empty();
-	int top();
+	T top();
 	~stack();
 };
