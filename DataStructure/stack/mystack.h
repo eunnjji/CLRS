@@ -1,19 +1,19 @@
 #pragma once
 # include <stdlib.h>
 using namespace std;
+#define MAXSIZE 10
 
 template<class T> class stack {
 private:
 	int top;
-	int size;
-
+	T* buf;
 public:
-
+	int size;
 	stack();
 	stack(int size);
 	void push(T x);
 	T pop();
 	bool Empty();
-	T top();
+	T Top();
 	~stack();
 };
