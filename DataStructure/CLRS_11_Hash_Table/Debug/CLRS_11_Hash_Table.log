@@ -1,0 +1,4 @@
+﻿  directaddress_TB.cpp
+C:\Users\dog2a\source\repos\CLRS_11_Hash_Table\directaddress_TB.cpp(54,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\dog2a\source\repos\CLRS_11_Hash_Table\directaddress_TB.cpp(63,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  CLRS_11_Hash_Table.vcxproj -> C:\Users\dog2a\source\repos\CLRS_11_Hash_Table\Debug\CLRS_11_Hash_Table.exe
