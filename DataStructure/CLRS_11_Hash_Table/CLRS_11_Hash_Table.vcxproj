@@ -139,9 +139,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="directaddress_TB.h" />
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="openaddress_HashTB.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="directaddress_TB.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

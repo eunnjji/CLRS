@@ -1,38 +1,16 @@
+#ifndef _DIRECTADDRESS_TB_
+#define _DIRECTADDRESS_TB_
 #pragma once
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include "Node.h"
 using namespace std;
-
-struct Node {
-	int key;
-	string data;
-	Node() {
-		this->key = -1;
-		this->data = "";
-	}
-	Node(int k, string str) {
-		this->key = k;
-		this->data = str;
-	}
-};
-ostream& operator<<(ostream& out, Node& n)
-{
-	if (n.data == "") {
-		out << "this Node is Empty\n";
-		return out;
-	}
-	else {
-		out << " key : " << n.key << " | " ;
-		out << " data :" << n.data << " \n";
-		return out;
-	}
-};
 
 class DirectAddressTB {
 public:
 	Node* myTB;
-	unsigned int size;
+	int size;
 	DirectAddressTB();
 	DirectAddressTB(int size);
 	Node search(int k);
@@ -41,3 +19,16 @@ public:
 	~DirectAddressTB();
 	
 };
+inline
+ostream& operator<<(ostream& out, DirectAddressTB& tb)
+{
+	out << " Current direct address table status\n";
+	out << "-------------------------------------------\n";
+	for (int i = 0; i < tb.size; i++) {
+		out << i << " | " << tb.myTB[i] << "\n";
+	}
+	out << "-------------------------------------------\n";
+	return out;
+}
+
+#endif // !1
