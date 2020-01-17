@@ -95,4 +95,5 @@ int main()
 	}
 	cout << "\n------------------------------\n";
 	cout << "memo_matrix_chain_최적 결과 비용 : " << m[1][n]<<"\n";
+	return 0;
 }

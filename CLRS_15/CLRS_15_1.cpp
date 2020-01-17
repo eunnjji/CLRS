@@ -93,6 +93,7 @@ int main()
     //cout << memoize_cut_rod(price, length) << "\n";
     int r[11], s[11];
     print_cut_rod_solution(price,length);
+    return 0;
 }
 
 //[reference] https://www.techiedelight.com/rot-cutting/

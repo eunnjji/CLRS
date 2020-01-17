@@ -84,4 +84,5 @@ int main()
     lcs_length(x, y);
     printTB();
     print_LCS(x, m, n);
+    return 0;
 }
