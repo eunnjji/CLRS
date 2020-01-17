@@ -43,6 +43,32 @@ void matrix_chain_multiply() {
 
 }
 
+int lookup_chain(vector<vector<int>>& m, vector<int> p, int i, int j); // CLRS_15_3_RECURSIVE-MATRIX-CHAIN
+int memoized_matrix_chain(vector<vector<int>>& m, vector<int> p) {
+	int n = p.size() - 1;
+	for (int i = 1; i <= n; i++) {
+		for (int j = i; j <= n; j++) {
+			m[i][j] = INT_MAX;
+		}
+	}
+	return lookup_chain(m, p, 1, n);
+}
+int lookup_chain(vector<vector<int>>& m, vector<int> p, int i, int j) {
+	int q;
+	if (m[i][j] < INT_MAX)
+		return m[i][j];
+	if (i == j)
+		m[i][j] = 0;
+	else {
+		for (int k = i; k <= j - 1; k++) {
+			q = lookup_chain(m, p, i, k) + lookup_chain(m, p, k + 1, j) + p[i - 1] * p[k] * p[j];
+			if (q < m[i][j])
+				m[i][j] = q;
+		}
+	}
+	return m[i][j];
+}
+
 int main()
 {
 	int n = 6;
@@ -50,12 +76,23 @@ int main()
 	vector<vector<int>> m(n+1, vector<int>(n+1));
 	vector<vector<int>> s(n+1,vector<int>(n+1));
 	matrix_chain_order(m, s, p);
+	for (int i = 0; i < n + 1; i++) {
+		for (int j = 0; j < n + 1; j++) {
+			printf("%5d", m[i][j]);
+		}
+		cout << "\n";
+	}
+	cout << "\n------------------------------\n";
+	cout << "\nbot_up_matrix_chain_최적 결과 비용 : " << m[1][n] << "\n";
+	print_optimal_parents(s,1,n);
+	cout << "\n------------------------------\n";
+	memoized_matrix_chain(m, p);
 	for (int i = 0; i < n+1; i++) {
 		for (int j = 0; j < n+1; j++) {
 			printf("%5d", m[i][j]);
 		}
 		cout << "\n";
 	}
-	cout << "최적 결과 비용 : " << m[1][n]<<"\n";
-	print_optimal_parents(s,1,n);
+	cout << "\n------------------------------\n";
+	cout << "memo_matrix_chain_최적 결과 비용 : " << m[1][n]<<"\n";
 }
