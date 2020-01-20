@@ -124,15 +124,15 @@ public:
 		else return search_recur(x->getRight(), k);
 	}
 	Node* search_repeat(Node* x, int k) {
-		while (x != nullptr || k != x->getData()) {
+		while (x != nullptr && k != x->getData()) {
 			if (k < x->getData())
 				x = x->getLeft();
 			else
 				x = x->getRight();
 		}
 		if (x == nullptr) {
-			cout << "fail....\n";
-			return nullptr;
+			cout << "search fail....\n";
+			exit(-1);
 		}
 		else return x;
 	}
