@@ -137,6 +137,36 @@ public:
 		else return x;
 	}
 	// Remove Node in Tree -----------------------------------------
+	void transplant(Node* u, Node* v) {
+		if (u->getParent() == nullptr)
+			setRoot(v);
+		else if (u == u->getParent()->getLeft())
+			u->getParent()->setLeft(v);
+		else u->getParent()->setRight(v);
+		if (v != nullptr)
+			v->setParent(u->getParent());
+	}
+	void remove(int k) {
+		Node* z = search_recur(root, k);
+		if (z->getLeft() == nullptr) {
+			transplant(z, z->getRight());
+		}
+		else if (z->getRight() == nullptr) {
+			transplant(z, z->getLeft());
+		}
+		else
+		{
+			Node* y = minimum(z->getRight());
+			if (y->getParent() != z) {
+				transplant(y, y->getRight());
+				y->setRight(z->getRight());
+				y->getRight()->setParent(y);
+			}
+			transplant(z, y);
+			y->setLeft(z->getLeft());
+			y->getLeft()->setParent(y);
+		}
+	}
 	// Maximum or Minimum Node in Tree------------------------
 	Node* maximum(Node* x) { // Find x the highest element by root
 		while (x->getRight() != nullptr)
@@ -180,7 +210,7 @@ public:
 			y = y->getParent();
 		}
 	} // largest node less than x
-
+	
 };
 
 #endif // !__BinarySearchTree__

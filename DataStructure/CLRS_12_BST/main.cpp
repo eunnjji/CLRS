@@ -32,23 +32,34 @@ int main()
     T.add_recur(new Node(9)); */ 
     
     printf("root: [%d]\n", T.root->getData());
-    //T.inorder_recur(T.root); 
-    //cout << "\n";
-    //T.preorder_recur(T.root); 
-    //cout << "\n";
-    //T.postorder_recur(T.root); 
-    //cout << "\n";
+    T.inorder_recur(T.root); 
+    cout << "\n";
+    T.preorder_recur(T.root); 
+    cout << "\n";
+    T.postorder_recur(T.root); 
+    cout << "\n";
 
-    //cout<< T.maximum(T.root)->getData() <<"\n"; 
-    //cout << T.max_recur(T.root)->getData() << "\n"; 
-    //cout << T.minimum(T.root)->getData() << "\n"; 
-    //cout << T.min_recur(T.root)->getData() << "\n"; 
+    cout<< T.maximum(T.root)->getData() <<"\n"; 
+    cout << T.max_recur(T.root)->getData() << "\n"; 
+    cout << T.minimum(T.root)->getData() << "\n"; 
+    cout << T.min_recur(T.root)->getData() << "\n"; 
 
-    //printf("successor : [%d]\n",T.successor(15)->getData());
-    //printf("predecessor : [%d]\n", T.predecessor(15)->getData());
+    printf("successor : [%d]\n",T.successor(15)->getData());
+    printf("predecessor : [%d]\n", T.predecessor(15)->getData());
+   
+    cout << "\ntest remove 7\n";
+    T.remove(7); 
+    T.preorder_recur(T.root);
+    cout << "\ntest remove 15\n";
+    T.remove(15);
+    T.preorder_recur(T.root);
+    cout << "\ntest remove 13\n";
+    T.remove(13);
+    T.preorder_recur(T.root);
 
-    printf("search 3: [%d]\n", T.search_repeat(T.root,3)->getData());
-    
+    cout << "\ntest search_repeat\n";
+    printf("search 3: [%d]\n", T.search_repeat(T.root, 3)->getData());
+    printf("search 5: [%d]\n", T.search_repeat(T.root, 5)->getData());
 
     //printf(" : [%d]\n", );
 
